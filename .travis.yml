@@ -2,6 +2,9 @@ dist: xenial
 language: php
 php:
   - 7.1.8
+addons:
+  sonarcloud:
+    organization: "davegthemighty-github"
 services:
   - postgresql
 before_install:
@@ -15,6 +18,7 @@ before_script:
   - ant unit-testing
 script:
   - phpunit --bootstrap vendor/autoload.php tests/  --coverage-clover var/tests/coverall/clover.xml --whitelist src/
+  - sonar-scanner
 after_success:
   - travis_retry php vendor/bin/php-coveralls -v
 cache:
