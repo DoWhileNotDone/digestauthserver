@@ -113,6 +113,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       php-gd
       php-intl
       php-xsl
+      php-ast
       libapache2-mod-php
    )
 
