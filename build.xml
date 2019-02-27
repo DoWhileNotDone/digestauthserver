@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<project name="JWT Server Project" default="info">
+<project name="Digest Authentication Server Project" default="info">
   <target name="info">
-    <echo>This is the build file for the JWT server - please select the target you need.</echo>
+    <echo>This is the build file for the Digest Authentication server - please select the target you need.</echo>
     <echo>The default is to output this message. Run ant -projecthelp to see other targets</echo>
   </target>
   <target name="development" depends="composer-install,dev-database,dev-environment,npm-install,run-gulp" />

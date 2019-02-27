@@ -1,10 +1,10 @@
 {
-    "name": "davegthemighty/jwtserver",
-    "description": "Sample JWT Server built up from various web tutorials. Please don't use in the wild.",
+    "name": "davegthemighty/digestauthserver",
+    "description": "Sample Digest Authentication Server built up from various web tutorials. Please don't use in the wild.",
     "type": "project",
     "keywords": [
         "slim",
-        "jwt",
+        "digest auth",
         "api"
     ],
     "authors": [
@@ -34,12 +34,12 @@
     },
     "autoload": {
         "psr-4": {
-            "JWTServer\\": "src/"
+            "DigestAuthServer\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "JWTServer\\Test\\": "tests/"
+            "DigestAuthServer\\Test\\": "tests/"
         }
     },
     "scripts": {

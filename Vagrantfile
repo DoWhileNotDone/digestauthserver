@@ -18,7 +18,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   config.vm.box = "bento/ubuntu-18.04"
-  config.vm.network "private_network", ip: "192.168.50.51"
+  config.vm.network "private_network", ip: "192.168.50.57"
 
   # Update apt packages
   config.vm.provision "shell", name: "apt", inline: <<-SHELL
@@ -168,9 +168,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
    You are now up and running.
 
-   This is the >> OAUTH Server
+   This is the >> Digest Authentication Server
 
-   The URL is 192.168.50.51
+   The URL is 192.168.50.57
 
 MESSAGE
 

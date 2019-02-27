@@ -1,5 +1,5 @@
 {
-  "name": "davegthemighty-jwtserver",
+  "name": "davegthemighty-digestauthserver",
   "version": "1.0.0",
   "description": "php practice",
   "main": "index.js",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/davegthemighty/jwtserver.git"
+    "url": "git+https://github.com/davegthemighty/digestauthserver.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/davegthemighty/jwtserver/issues"
+    "url": "https://github.com/davegthemighty/digestauthserver/issues"
   },
-  "homepage": "https://github.com/davegthemighty/jwtserver#readme",
+  "homepage": "https://github.com/davegthemighty/digestauthserver#readme",
   "dependencies": {
     "bootstrap": "^4.2.1",
     "jquery": "^3.3.1",
