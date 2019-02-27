@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% block head %}
+            <meta charset="utf-8"/>
+            <link href='//fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+            <link href='{{base_url}}/css/style.css' rel='stylesheet' type='text/css'>
+            <title>{% block title %}{% endblock %} - JWT Server</title>
+        {% endblock %}
+    </head>
+    <body>
+        <div id="content container">
+            {% block content %}{% endblock %}
+        </div>
+
+        {% block footer %}
+        <!-- Footer -->
+        <footer class="page-footer font-small pt-4">
+
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3">
+              &copy; Copyright {{ "now"|date("Y") }} by <a href="https://github.com/davegthemighty/">me</a>.
+            </div>
+            <!-- Copyright -->
+          </footer>
+          <!-- Footer -->
+          {% endblock %}
+
+    </body>
+</html>

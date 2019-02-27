@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<project name="JWT Server Project" default="info">
+  <target name="info">
+    <echo>This is the build file for the JWT server - please select the target you need.</echo>
+    <echo>The default is to output this message. Run ant -projecthelp to see other targets</echo>
+  </target>
+  <target name="development" depends="composer-install,dev-database,dev-environment,npm-install,run-gulp" />
+  <target name="unit-testing" depends="dev-database,dev-environment,npm-install,run-gulp" />
+
+  <target name="composer-install">
+    <!-- FIXME: Work out if there is a different way to chain arguments -->
+    <exec executable="composer">
+      <arg line="install --no-suggest --no-progress --prefer-source --no-interaction"/>
+    </exec>
+  </target>
+  <target name="dev-database" depends="dev-db-setup,dev-db-data" />
+  <target name="dev-db-setup">
+    <!-- FIXME: Work out if there is a different way to chain arguments -->
+    <exec executable="psql">
+      <arg line="-f ./scripts/db/sql/0_init.sql postgres"/>
+    </exec>
+  </target>
+  <target name="dev-db-data">
+    <exec executable="psql">
+      <arg line="-f ./scripts/db/sql/1_exampledata.sql postgres"/>
+    </exec>
+  </target>
+  <target name="dev-environment" >
+    <!-- Copy the .env.development to .env -->
+    <copy file=".env.development" tofile=".env"/>
+  </target>
+  <target name="npm-install" >
+    <exec executable="npm">
+      <arg line="install"/>
+    </exec>
+  </target>
+  <target name="run-gulp" >
+    <exec executable="gulp">
+      <arg line="vagrant"/>
+    </exec>
+  </target>
+
+</project>

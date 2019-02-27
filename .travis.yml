@@ -1,0 +1,22 @@
+dist: xenial
+language: php
+php:
+  - 7.1.3
+services:
+  - postgresql
+before_install:
+  - sudo apt-get update
+  - sudo apt-get install -y ant
+  - npm install -g gulp-cli
+install:
+  - composer self-update
+  - composer install --prefer-source --no-interaction
+before_script:
+  - ant unit-testing
+script:
+  - phpunit --bootstrap vendor/autoload.php tests/  --coverage-clover var/tests/coverall/clover.xml --whitelist src/
+after_success:
+  - travis_retry php vendor/bin/php-coveralls -v
+cache:
+  directories:
+  - vendor

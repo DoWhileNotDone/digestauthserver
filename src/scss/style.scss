@@ -1,0 +1,46 @@
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
+$font-stack:    'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$primary-color: #719e40;
+$background-color: #aaa;
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin: 50px 0 60px 0;
+  padding: 0;
+  width: 100%;
+  font-family: $font-stack;
+  color: $background-color;
+  font-size: 18px;
+  text-align: center;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+}
+
+h1 {
+    color: $primary-color;
+    letter-spacing: -3px;
+    font-size: 80px;
+    font-weight: 200;
+    margin-bottom: 0;
+}
+
+a {
+  text-decoration:none;
+  color:$primary-color;
+}
+
+input.number-small {
+  width: 50px;
+}
