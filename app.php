@@ -24,5 +24,6 @@ require __DIR__ . "/config/middleware.php";
 
 # Define Routes
 require __DIR__ . "/routes/index.php";
+require __DIR__ . "/routes/resource.php";
 
 $app->run();
