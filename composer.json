@@ -29,6 +29,7 @@
     },
     "require-dev": {
         "overtrue/phplint": "^1.0",
+        "phpstan/phpstan": "^0.11.2",
         "phpunit/phpunit": "^7.3",
         "squizlabs/php_codesniffer": "^3.2"
     },
@@ -44,6 +45,7 @@
     },
     "scripts": {
         "start": "php -S 0.0.0.0:8080 -t public",
-        "test": "phpunit"
+        "test": "phpunit",
+        "phpstan": "vendor/bin/phpstan analyse src routes --level max"
     }
 }

@@ -41,7 +41,7 @@ class Digest
             unset($needed_parts[$m[1]]);
         }
 
-        return $needed_parts ? false : $data;
+        return empty($needed_parts) ? $data : null;
     }
 
     public static function valid(): bool
