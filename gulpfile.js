@@ -11,8 +11,8 @@ var paths = {
   dirs: {
     build: 'public'
   },
-  js: 'src/js/*.js',
-  sass: 'src/scss/*.scss'
+  js: 'resources/js/*.js',
+  sass: 'resources/scss/*.scss'
 };
 
 // Concatenate & Minify JS
