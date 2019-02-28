@@ -1,26 +1,30 @@
 dist: xenial
 language: php
 php:
-  - 7.1.8
+- 7.1.8
 addons:
   sonarcloud:
-    organization: "davegthemighty-github"
+    organization: davegthemighty-github
 services:
-  - postgresql
+- postgresql
 before_install:
-  - sudo apt-get update
-  - sudo apt-get install -y ant
-  - npm install -g gulp-cli
+- sudo apt-get update
+- sudo apt-get install -y ant
+- npm install -g gulp-cli
 install:
-  - composer self-update
-  - composer install --prefer-source --no-interaction
+- composer self-update
+- composer install --prefer-source --no-interaction
 before_script:
-  - ant unit-testing
+- ant unit-testing
 script:
-  - phpunit --bootstrap vendor/autoload.php tests/  --coverage-clover var/tests/coverall/clover.xml --whitelist src/
-  - sonar-scanner
+- phpunit --bootstrap vendor/autoload.php tests/  --coverage-clover var/tests/coverall/clover.xml
+  --whitelist src/
+- sonar-scanner
 after_success:
-  - travis_retry php vendor/bin/php-coveralls -v
+- travis_retry php vendor/bin/php-coveralls -v
 cache:
   directories:
   - vendor
+env:
+  global:
+    secure: K/Rl6kS1fyEsBP+Ws3wxc3T0aPZ/FHiLcUoH3h9SRbMirlyAs+C1UBxX4xIyukLHrlObr+QId/Z9A2+2QD+PNQxsEhopGkY3M/Htq6rF18QzeE2frB01S+HHmNTWVObavyK6NudrW59xMbnpu5TvLLHHfLHi1LeuouTb9YliCdUj7t1tgie96oYIEyEHQdma3uuOojpZ6GF0ujOv1GEY9xZVEAQtbQLM2C/HBal5Ln6e47GDYEA7AIDrJTSy8IwJrPuEYzASGgQxYduSMq5mwB1s2rw95S9iTnMPf2N3q0grSLpZDvw5wAChx0QaI/Q/E6HM/MYqLVw/PvXTs0ZlOUy8PiL8i5SdsROQ9l9Npo2DQZQyVMQiJXUKWvVs4JftwCbxpIJxl49741mkxYFpgBxXFhx2y5bdOOs6MesFjgFy4q+bouq3SsEJl8uPyu7mdEPh8znOSTDKXufLgF86o0YU80fbeDq/SMdKkDl+sS75Tyioro8h2qRYlRTmN8AsLK4SEBR0gGS5PjLgr+JNPELRohlQD/sPeuUENwWsZu4j65tTwxviGz/C3FmGizgH+AbqfGHQU5WpUUslvqJnxzqwMycqr4BiJ0mgwzjTHIvyAkFVUyJ16pej5RSEcHJm5P7+DsSKHieoRJ/Hf1/m5Rm3aK/VFBMHztzpdbJ1cPQ=
