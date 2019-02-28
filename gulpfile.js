@@ -1,9 +1,12 @@
 // Include gulp
 var gulp = require('gulp');
 // Include plugins
+var typescript = require('gulp-typescript');
+var sourcemaps = require('gulp-sourcemaps');
+var babel = require('gulp-babel');
+var rename = require('gulp-rename');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
-var rename = require('gulp-rename');
 var sass = require('gulp-sass');
 
 //https://gist.github.com/demisx/beef93591edc1521330a
@@ -11,20 +14,27 @@ var paths = {
   dirs: {
     build: 'public'
   },
-  js: 'resources/js/*.js',
+  typescript: 'resources/typescript/*.ts',
   sass: 'resources/scss/*.scss'
 };
 
-// Concatenate & Minify JS
-gulp.task('scripts', function() {
-    return gulp.src(paths.js)
-      .pipe(concat('main.js'))
+// Transpile, Concatenate & Minify Typescript
+gulp.task('scripts', function () {
+    return gulp.src(paths.typescript)
+      .pipe(sourcemaps.init())
+      .pipe(concat("main.ts"))
+      .pipe(typescript({
+          noImplicitAny: true,
+          outFile: 'main.js'
+      }))
+      .pipe(babel())
       .pipe(rename({suffix: '.min'}))
       .pipe(uglify())
+      .pipe(sourcemaps.write("."))
       .pipe(gulp.dest(paths.dirs.build + '/js'));
 });
 
-/// Compile and Concatenate CSS
+// Compile and Concatenate CSS
 sass.compiler = require('node-sass');
 
 gulp.task('sass', function () {
