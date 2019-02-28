@@ -1,10 +1,11 @@
 <?php declare(strict_types=1);
 
-use Slim\Http\Request;
-use Slim\Http\Response;
+use DigestAuthServer\Controllers\ResourceController;
 
-// Define named route
-$app->get('/resource', function (Request $request, Response $response, array $arguments): Response {
-    $response->getBody()->write("Authenticated");
-    return $response;
-})->setName('resource');
+$container = $app->getContainer();
+$container['ResourceController'] = function ($c) {
+    $view = $c->get("view"); // retrieve the 'view' from the container
+    return new ResourceController($view);
+};
+
+$app->get('/resource', \ResourceController::class . ':index')->setName('resource');
