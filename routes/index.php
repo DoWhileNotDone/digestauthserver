@@ -1,9 +1,11 @@
 <?php declare(strict_types=1);
 
-use Slim\Http\Request;
-use Slim\Http\Response;
+use DigestAuthServer\Controllers\IndexController;
 
-// Define named route
-$app->get('/', function (Request $request, Response $response, array $arguments): Response {
-    return $this->view->render($response, 'index.html', $arguments);
-})->setName('home');
+$container = $app->getContainer();
+$container['IndexController'] = function ($c) {
+    $view = $c->get("view"); // retrieve the 'view' from the container
+    return new IndexController($view);
+};
+
+$app->get('/', \IndexController::class . ':index')->setName('home');
